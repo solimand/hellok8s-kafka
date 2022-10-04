@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  ports:
+  - port: 8888        # Use 8888 to match the container port
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    app: demo
+  type: ClusterIP
