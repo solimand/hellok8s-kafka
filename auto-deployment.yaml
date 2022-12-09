@@ -19,10 +19,13 @@ spec:
           image: localhub/localhellogo
           imagePullPolicy: Never
           ports:
-          - containerPort: 8888
-          env:
-            - name: GREETING
-              valueFrom:
-                configMapKeyRef:
-                  name: app-config
-                  key: greetings
+            - containerPort: 8888
+          # env:                      # takes one key (use GREETING in the code)
+          #   - name: GREETING
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: app-config
+          #         key: greetings
+          envFrom:                  # takes all keys
+            - configMapRef:
+                name: app-config

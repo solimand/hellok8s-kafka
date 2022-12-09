@@ -8,7 +8,8 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	greeting := os.Getenv(("GREETING"))
+	// greeting := os.Getenv(("GREETING"))
+	greeting := os.Getenv(("greetings"))
 	fmt.Fprintf(w, "%s, 世界\n", greeting)
 }
 

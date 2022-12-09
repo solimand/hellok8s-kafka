@@ -10,3 +10,7 @@ We describe different exercises
     - ```kubectl apply -f .\auto-deployment.yaml```
     - ```kubectl apply -f .\yaml\first-service.yaml```
     - ```kubectl port-forward service/demo 9999:8888```
+
+## Clean up
+- ```kubectl delete configmap app-config```
+- ```kubectl delete all --selector app=demo```
