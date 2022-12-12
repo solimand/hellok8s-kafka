@@ -20,12 +20,27 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 8888
-          # env:                      # takes one key (use GREETING in the code)
+          # env:                        # CASE I) takes one key (use GREETING in the code)
           #   - name: GREETING
           #     valueFrom:
           #       configMapKeyRef:
           #         name: app-config
           #         key: greetings
-          envFrom:                  # takes all keys
-            - configMapRef:
-                name: app-config
+
+          # envFrom:                    # CASE II) takes all keys
+          #   - configMapRef:
+          #       name: app-config
+
+          volumeMounts:                 # CASE III) env as volume
+            - mountPath: /config/
+              name: demo-config-volume
+              readOnly: true
+      
+      volumes:  # Volume for CASE III
+      - name: demo-config-volume
+        configMap:
+          name: app-config
+          items:
+            - key: config
+              path: app.yaml
+

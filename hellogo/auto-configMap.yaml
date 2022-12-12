@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata:
   name: app-config
 data:
-  greetings: ciao
+  config: |
+    greetings: Hola Chico
