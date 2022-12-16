@@ -28,7 +28,7 @@ spec:
           - name: KAFKA_ZOOKEEPER_CONNECT
             value: "zoo:2181"
           - name: KAFKA_ADVERTISED_LISTENERS
-            value: "PLAINTEXT://0.0.0.0:9092"
+            value: "PLAINTEXT://service-kafka:9092"
           - name: KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE
             value: "true"
             
